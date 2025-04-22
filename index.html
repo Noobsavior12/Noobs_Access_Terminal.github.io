@@ -1,27 +1,24 @@
 <!DOCTYPE html>
-<html lang="en"> <!-- This tells the browser this is an HTML5 document, and sets the language to English -->
+<html lang="en">
 <head>
-  <meta charset="UTF-8"> <!-- Ensures all characters display properly -->
-  <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Makes the site mobile-friendly -->
-  <title>The Forgotten Ruins of Skyler</title> <!-- Title shown in browser tab -->
-  <link rel="stylesheet" href="styles.css"> <!-- This links to your CSS styling file -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Forgotten Ruins of Skyler</title>
+  <link rel="stylesheet" href="styles.css">
   <script>
-    // Password check logic: this prevents access to the content until the correct password is entered.
     function checkPassword() {
-      const correctPassword = "skyler2025"; // Change this to your desired password
+      const correctPassword = "skyler2025";
       const enteredPassword = document.getElementById("password").value;
 
-      // If the password is correct, reveal the content
       if (enteredPassword === correctPassword) {
-        document.getElementById("loginBox").style.display = "none"; // Hide password entry
-        document.getElementById("mainContent").style.display = "block"; // Show main content
-        localStorage.setItem("accessGranted", "true"); // Remember access for future visits
+        document.getElementById("loginBox").style.display = "none";
+        document.getElementById("mainContent").style.display = "block";
+        localStorage.setItem("accessGranted", "true");
       } else {
-        document.getElementById("error").innerText = "Incorrect password. Please try again."; // Display error message
+        document.getElementById("error").innerText = "Incorrect password. Please try again.";
       }
     }
 
-    // Check if the user has already entered the correct password and auto-unlock
     window.onload = function() {
       if (localStorage.getItem("accessGranted") === "true") {
         document.getElementById("loginBox").style.display = "none";
@@ -32,63 +29,21 @@
 </head>
 <body>
 
-  <!-- Login box (password entry) -->
-  <div id="loginBox" style="text-align: center; padding-top: 100px;">
+  <!-- Login box with cool styling -->
+  <div id="loginBox" class="login-box">
     <h2>🔒 Restricted Area</h2>
     <input type="password" id="password" placeholder="Enter password" />
     <button onclick="checkPassword()">Unlock</button>
-    <p id="error" style="color: red;"></p> <!-- Error message when the wrong password is entered -->
+    <p id="error" class="error-message"></p>
   </div>
 
-  <!-- Main content of the page, hidden until password is entered -->
+  <!-- Main content, hidden until the password is entered -->
   <div id="mainContent" style="display: none;">
-    <!-- Top of the page: Title and intro -->
     <header>
-      <h1>Idk what to put for the heading lmao</h1> <!-- You can change this to match the vibe -->
+      <h1>The Forgotten Ruins of Skyler</h1>
       <p>A Minecraft-based ARG uncovering the mystery of Ahito Yuki and the 'cult' of mages.</p>
     </header>
-
-    <!-- Navigation bar: Jump to different sections of the page -->
-    <nav>
-      <a href="#story">Story</a>
-      <a href="#clues">Clues</a>
-      <a href="#about">About</a>
-    </nav>
-
-    <!-- Main content of the page -->
-    <main>
-
-      <!-- about the ARG -->
-      <section id="Vesperine SMP">
-        <h2>About This ARG</h2>
-        <p>
-          This ARG is taking place in S2 Of Vesperine SMP owned by Mizzen. And yes the mages are coming back
-        </p>
-      </section>
-
-      <!-- Clue hints for players -->
-      <section id="clues">
-        <h2>🧩 Clues</h2>
-        <p>Something Something</p>
-        <ul>
-          <li>Check inside ruined towers things?</li>
-          <li>Some pictures may hide ciphers...</li>
-          <li>Look for coded books left behind by the mages</li>
-        </ul>
-      </section>
-
-      <!-- Random Text tbh -->
-      <section id="about">
-        <h2>MAGES ARE BACK BABY</h2>
-        <p>WOOOOOOO</p>
-      </section>
-
-    </main>
-
-    <!-- Footer text at the bottom of the page -->
-    <footer>
-      <p>Created by Noob "@Noobsavior12" — Minecraft Vesperine SMP ARG Project 2025</p>
-    </footer>
+    <!-- Content continues here -->
   </div>
 
 </body>

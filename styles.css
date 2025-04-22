@@ -1,63 +1,111 @@
-/* Basic body styling: font, background, text color */
+/* General page styling */
 body {
-    font-family: Arial, sans-serif; /* Font used for most text */
-    background-color: #f9f9f9; /* Light grey background */
-    color: #222; /* Dark text color */
-    margin: 0; /* No space around the edges */
-    padding: 0;
-  }
-  
-  /* Header: the purple box with title at top */
-  header {
-    background-color: #4b0082; /* Deep purple */
+    font-family: 'Arial', sans-serif;
+    background-color: #111;
     color: white;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  /* Makes the title inside the header bigger */
-  header h1 {
     margin: 0;
-    font-size: 2.5em;
+    padding: 0;
+    overflow: hidden;
+    animation: backgroundShift 5s infinite alternate;
+    background: linear-gradient(135deg, #ff00cc, #00d8ff);
   }
   
-  /* Navigation bar: the bar with links to different parts of the page */
-  nav {
-    background-color: #eee; /* Light grey background */
+  /* Login box styling */
+  .login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    padding: 10px;
-  }
-  
-  /* Styling for each nav link */
-  nav a {
-    margin: 0 15px;
-    text-decoration: none; /* Removes underline */
-    color: #4b0082;
-    font-weight: bold;
-  }
-  
-  /* Main section padding and layout */
-  main {
-    padding: 20px;
-    max-width: 800px; /* Keeps the text from going too wide */
-    margin: auto;
-  }
-  
-  /* Each section heading */
-  h2 {
-    color: #4b0082;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 5px;
-  }
-  
-  /* Footer: small text at bottom */
-  footer {
-    background-color: #4b0082;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #1f1f1f, #333);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    max-width: 400px;
     width: 100%;
+  }
+  
+  /* Title of the login box */
+  .login-box h2 {
+    color: #e5e5e5;
+    font-size: 2em;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in;
+  }
+  
+  /* Password input styling */
+  .login-box input[type="password"] {
+    width: 80%;
+    padding: 12px;
+    margin: 15px 0;
+    border-radius: 5px;
+    border: 2px solid #555;
+    background-color: #222;
+    color: #fff;
+    font-size: 1em;
+    outline: none;
+    transition: all 0.3s ease;
+    animation: inputFocus 2s infinite alternate;
+  }
+  
+  .login-box input[type="password"]:focus {
+    border-color: #00d8ff;
+    box-shadow: 0 0 10px rgba(0, 216, 255, 0.7);
+  }
+  
+  /* Button styling */
+  .login-box button {
+    padding: 12px 20px;
+    background-color: #00d8ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 216, 255, 0.7);
+  }
+  
+  .login-box button:hover {
+    background-color: #0096c7;
+    box-shadow: 0 0 15px rgba(0, 216, 255, 1);
+    transform: scale(1.05);
+  }
+  
+  /* Error message styling */
+  .error-message {
+    color: #ff6347;
+    font-size: 1em;
+    margin-top: 15px;
+  }
+  
+  /* Background animation (shifting gradient) */
+  @keyframes backgroundShift {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+  
+  /* Input focus glow animation */
+  @keyframes inputFocus {
+    0% {
+      border-color: #555;
+    }
+    100% {
+      border-color: #00d8ff;
+    }
+  }
+  
+  /* Fade-in effect for header */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
   
