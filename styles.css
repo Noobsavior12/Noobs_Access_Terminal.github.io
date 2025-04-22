@@ -1,0 +1,63 @@
+/* Basic body styling: font, background, text color */
+body {
+    font-family: Arial, sans-serif; /* Font used for most text */
+    background-color: #f9f9f9; /* Light grey background */
+    color: #222; /* Dark text color */
+    margin: 0; /* No space around the edges */
+    padding: 0;
+  }
+  
+  /* Header: the purple box with title at top */
+  header {
+    background-color: #4b0082; /* Deep purple */
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  /* Makes the title inside the header bigger */
+  header h1 {
+    margin: 0;
+    font-size: 2.5em;
+  }
+  
+  /* Navigation bar: the bar with links to different parts of the page */
+  nav {
+    background-color: #eee; /* Light grey background */
+    text-align: center;
+    padding: 10px;
+  }
+  
+  /* Styling for each nav link */
+  nav a {
+    margin: 0 15px;
+    text-decoration: none; /* Removes underline */
+    color: #4b0082;
+    font-weight: bold;
+  }
+  
+  /* Main section padding and layout */
+  main {
+    padding: 20px;
+    max-width: 800px; /* Keeps the text from going too wide */
+    margin: auto;
+  }
+  
+  /* Each section heading */
+  h2 {
+    color: #4b0082;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+  }
+  
+  /* Footer: small text at bottom */
+  footer {
+    background-color: #4b0082;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
