@@ -2,85 +2,57 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Forgotten Ruins of Skyler</title>
-  <link rel="stylesheet" href="styles.css">
-  <script>
-    function checkPassword() {
-      const correctPassword = "skyler2025";
-      const enteredPassword = document.getElementById("password").value;
+  <title>Access Terminal</title>
 
-      if (enteredPassword === correctPassword) {
-        document.getElementById("loginBox").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
-        localStorage.setItem("accessGranted", "true");
-      } else {
-        document.getElementById("error").innerText = "Incorrect password. Please try again.";
-      }
+  <style>
+    /* === ARG Terminal Style === */
+    body {
+      background-color: #111;       /* Dark background */
+      color: #0f0;                  /* Neon green text */
+      font-family: monospace;       /* Terminal-like font */
+      text-align: center;           /* Center everything */
+      margin-top: 100px;            /* Push down from the top */
     }
 
-    window.onload = function() {
-      if (localStorage.getItem("accessGranted") === "true") {
-        document.getElementById("loginBox").style.display = "none";
-        document.getElementById("mainContent").style.display = "block";
-      }
-    };
-  </script>
+    input, button {
+      background-color: #000;       /* Input/button black background */
+      border: 1px solid #0f0;       /* Green borders */
+      color: #0f0;                  /* Green text */
+      padding: 10px;                /* Space inside elements */
+      margin: 10px;                 /* Space between elements */
+    }
+
+    #response {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
 </head>
+
 <body>
+  <h1>SECURE TERMINAL</h1>
+  <p>Enter Access Code:</p>
 
-  <!-- Login box with cool styling -->
-  <div id="loginBox" class="login-box">
-    <h2>🔒 Restricted Area</h2>
-    <input type="password" id="password" placeholder="Enter password" />
-    <button onclick="checkPassword()">Unlock</button>
-    <p id="error" class="error-message"></p>
-  </div>
+  <input type="text" id="codeInput" placeholder="Type code...">
+  <button onclick="checkCode()">Submit</button>
 
-  <!-- Main content, hidden until the password is entered -->
-  <div id="mainContent" style="display: none;">
-    <header>
-      <h1>The Forgotten Ruins of Skyler</h1>
-      <p>A Minecraft-based ARG uncovering the mystery of Ahito Yuki and the 'cult' of mages.</p>
-    </header>
+  <div id="response"></div>
 
-    <!-- Navigation bar -->
-    <nav>
-      <a href="#story">Story</a>
-      <a href="#clues">Clues</a>
-      <a href="#about">About</a>
-    </nav>
+  <script>
+    function checkCode() {
+      // Grab the user's input and normalize it
+      const input = document.getElementById("codeInput").value.toLowerCase().trim();
+      const response = document.getElementById("response");
 
-    <!-- Main content sections -->
-    <main>
-      <section id="Vesperine SMP">
-        <h2>About This ARG</h2>
-        <p>
-          This ARG is taking place in S2 Of Vesperine SMP owned by Mizzen. And yes the mages are coming back
-        </p>
-      </section>
-
-      <section id="clues">
-        <h2>🧩 Clues</h2>
-        <p>Something Something</p>
-        <ul>
-          <li>Check inside ruined towers things?</li>
-          <li>Some pictures may hide ciphers...</li>
-          <li>Look for coded books left behind by the mages</li>
-        </ul>
-      </section>
-
-      <section id="about">
-        <h2>MAGES ARE BACK BABY</h2>
-        <p>WOOOOOOO</p>
-      </section>
-    </main>
-
-    <!-- Footer text -->
-    <footer>
-      <p>Created by Noob "@Noobsavior12" — Minecraft Vesperine SMP ARG Project 2025</p>
-    </footer>
-  </div>
-
+      // Match specific secret codes
+      if (input === "echo") {
+        response.innerText = "Access Granted. Proceed to /logs/sector3.html";
+      } else if (input === "skyler") {
+        response.innerText = "Mage credentials confirmed. Initiating memory recall...";
+      } else {
+        response.innerText = "Access Denied.";
+      }
+    }
+  </script>
 </body>
 </html>
