@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Command Interface</title>
+
+  <!-- 🎨 STYLING SECTION -->
+  <style>
+    body {
+      background-color: #000;            /* Terminal-black background */
+      color: #0f0;                       /* Neon green text */
+      font-family: monospace;            /* Retro CLI feel */
+      padding: 20px;
+    }
+
+    #terminal {
+      border: 1px solid #0f0;            /* Terminal border */
+      padding: 10px;
+      height: 400px;
+      overflow-y: auto;                  /* Enables scrolling if text overflows */
+      background-color: #000;
+    }
+
+    #commandInput {
+      width: 100%;                       /* Full width input bar */
+      background-color: #000;
+      border: none;
+      border-top: 1px solid #0f0;        /* Border separates input from terminal */
+      color: #0f0;
+      font-family: monospace;
+      font-size: 16px;
+      padding: 10px;
+    }
+
+    ::placeholder {
+      color: #060;                       /* Dim green placeholder text */
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 🔐 Terminal Header -->
+  <h2>USER@SECURE-TAP:~$ Terminal Active</h2>
+
+  <!-- 📜 Output terminal where messages will appear -->
+  <div id="terminal">
+    <div>Welcome to the Secure Node Interface</div>
+    <div>Type 'help' to see available commands</div>
+    <br>
+  </div>
+
+  <!-- 🔡 Command input field -->
+  <input
+    type="text"
+    id="commandInput"
+    placeholder="Enter command..."
+    autofocus
+    onkeydown="handleCommand(event)"
+  >
+
+  <!-- 🤖 Terminal Command Logic -->
+  <script>
+    const terminal = document.getElementById("terminal");
+    const input = document.getElementById("commandInput");
+
+    // 🔄 Main function to handle user input
+    function handleCommand(e) {
+      if (e.key === "Enter") {
+        const cmd = input.value.trim().toLowerCase(); // Clean input
+        input.value = "";                              // Clear the input box
+        appendLine(`> ${cmd}`);                        // Print command to screen
+
+        // 🧠 Command Responses – Add more here!
+        switch (cmd) {
+          case "help":
+            appendLine("Available commands: help, ping, trace, reveal, exit");
+            break;
+
+          case "ping":
+            appendLine("Pinging node... Response received. Latency: 17ms.");
+            break;
+
+          case "trace":
+            appendLine("Tracing route to mage-node-7... trace complete.");
+            break;
+
+          case "reveal":
+            appendLine("Revealing fragment: /fragments/log42.txt");
+            break;
+
+          case "exit":
+            appendLine("Logging out...");
+            setTimeout(() => {
+              window.location.href = "index.html";  // 🔁 Back to entry screen
+            }, 2000);
+            break;
+
+          default:
+            // ❌ Unknown command
+            appendLine(`Unknown command: '${cmd}'`);
+        }
+
+        // 🔽 Auto scroll terminal to bottom
+        terminal.scrollTop = terminal.scrollHeight;
+      }
+    }
+
+    // 📥 Adds a line to the terminal output
+    function appendLine(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      terminal.appendChild(div);
+    }
+  </script>
+</body>
+</html>

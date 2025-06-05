@@ -4,53 +4,68 @@
   <meta charset="UTF-8">
   <title>Access Terminal</title>
 
+  <!-- 🎨 STYLING SECTION -->
   <style>
-    /* === ARG Terminal Style === */
     body {
-      background-color: #111;       /* Dark background */
-      color: #0f0;                  /* Neon green text */
-      font-family: monospace;       /* Terminal-like font */
-      text-align: center;           /* Center everything */
-      margin-top: 100px;            /* Push down from the top */
+      background-color: #111;       /* Dark terminal-like background */
+      color: #0f0;                  /* Green text color */
+      font-family: monospace;       /* Retro console font */
+      text-align: center;           /* Center content */
+      margin-top: 100px;            /* Vertical space from top */
     }
 
     input, button {
-      background-color: #000;       /* Input/button black background */
-      border: 1px solid #0f0;       /* Green borders */
-      color: #0f0;                  /* Green text */
-      padding: 10px;                /* Space inside elements */
-      margin: 10px;                 /* Space between elements */
+      background-color: #000;       /* Black background on input/button */
+      border: 1px solid #0f0;       /* Thin green border */
+      color: #0f0;                  /* Text color */
+      padding: 10px;                /* Internal spacing */
+      margin: 10px;                 /* External spacing */
     }
 
     #response {
-      margin-top: 20px;
+      margin-top: 20px;             /* Space above result text */
       font-size: 18px;
     }
   </style>
 </head>
 
 <body>
+  <!-- 🔐 HEADER + INSTRUCTIONS -->
   <h1>SECURE TERMINAL</h1>
   <p>Enter Access Code:</p>
 
-  <input type="text" id="codeInput" placeholder="Type code...">
+  <!-- 🔡 TEXT INPUT FOR CODES -->
+  <input type="text" id="codeInput" placeholder="Type access code here...">
+
+  <!-- 🔘 SUBMIT BUTTON -->
   <button onclick="checkCode()">Submit</button>
 
+  <!-- 📢 OUTPUT AREA -->
   <div id="response"></div>
 
+  <!-- 🤖 JAVASCRIPT LOGIC SECTION -->
   <script>
     function checkCode() {
-      // Grab the user's input and normalize it
+      // ✅ Get input value, convert to lowercase, trim spaces
       const input = document.getElementById("codeInput").value.toLowerCase().trim();
       const response = document.getElementById("response");
 
-      // Match specific secret codes
-      if (input === "echo") {
-        response.innerText = "Access Granted. Proceed to /logs/sector3.html";
-      } else if (input === "skyler") {
-        response.innerText = "Mage credentials confirmed. Initiating memory recall...";
+      // ✅ Define accepted codes (you can customize these!)
+      const codes = {
+        "TEST": "Access Granted. Redirecting to terminal...",
+        "VSMP": "wat"
+      };
+
+      // ✅ If input matches any key in the 'codes' object
+      if (codes[input]) {
+        response.innerText = codes[input];  // Display message
+        // Delay and then redirect to command prompt page
+        setTimeout(() => {
+          window.location.href = "terminal.html"; // 🔁 Change this if using a different next page
+        }, 1500);
       } else {
-        response.innerText = "Access Denied.";
+        // ❌ Wrong code entered
+        response.innerText = "Access Denied."; // Change this if you want a different failure message
       }
     }
   </script>
