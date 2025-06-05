@@ -98,6 +98,7 @@
           default:
             // ❌ Unknown command
             appendLine(`Unknown command: '${cmd}'`);
+            break;
 
             case "fnaf":
             appendLine("Connection Terminated");
@@ -120,12 +121,16 @@
 
             case "eight":
             appendLine("Who that?"),setTimeout(() => {
-                appendLine("Very lame person thats who")
+                appendLine("Very lame person thats who thats is")
             }, 100);
             break;
 
             case "corvid":
             appendLine("This person loves crows?")
+            break;
+
+            case "coda":
+            appendLine("No longer brings you to fnaf thing. Coda is is very cool like snow");
             break;
         }
 
