@@ -98,6 +98,13 @@
           default:
             // ❌ Unknown command
             appendLine(`Unknown command: '${cmd}'`);
+
+            case "fnaf":
+            appendLine("Connection Terminated");
+            setTimeout(() => {
+                window.location.href = "fnafvid.html";
+            }, 2000);
+            break;
         }
 
         // 🔽 Auto scroll terminal to bottom
