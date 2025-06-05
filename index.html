@@ -46,26 +46,23 @@
   <!-- 🤖 JAVASCRIPT LOGIC SECTION -->
   <script>
     function checkCode() {
-      // ✅ Get input value, convert to lowercase, trim spaces
+      // Normalize input: lowercase + trim spaces
       const input = document.getElementById("codeInput").value.toLowerCase().trim();
       const response = document.getElementById("response");
 
-      // ✅ Define accepted codes (you can customize these!)
+      // Codes keys are all lowercase
       const codes = {
-        "TEST": "Access Granted. Redirecting to terminal...",
-        "VSMP": "wat"
+        "test": "Access Granted. Redirecting to terminal...",
+        "vsmp": "wat"
       };
 
-      // ✅ If input matches any key in the 'codes' object
       if (codes[input]) {
-        response.innerText = codes[input];  // Display message
-        // Delay and then redirect to command prompt page
+        response.innerText = codes[input];
         setTimeout(() => {
-          window.location.href = "terminal.html"; // 🔁 Change this if using a different next page
+          window.location.href = "terminal.html";
         }, 1500);
       } else {
-        // ❌ Wrong code entered
-        response.innerText = "Access Denied."; // Change this if you want a different failure message
+        response.innerText = "Access Denied.";
       }
     }
   </script>
