@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Command Interface</title>
+  <title>Connection Terminal</title>
 
   <!--  STYLING SECTION -->
   <style>
@@ -40,7 +40,7 @@
 
 <body>
   <!-- Terminal Header -->
-  <h2>USER_NOOB@SECURE-CMD:~$ Terminal Active</h2>
+  <h2>USER@SECURE-CMD:~$ Terminal Active</h2>
 
   <!--  Output terminal where messages will appear -->
   <div id="terminal">
@@ -139,19 +139,19 @@
             appendLine("ping <target> <password>")
             break;
 
-            case"ping noobs_pc password":
-            appendLine("Pinging noobs_pc...."), appendline("4%"), 
+            case "ping noobs_pc password":
+            appendLine("Pinging noobs_pc...."), appendLine("4%"), 
             setTimeout(() => {
-            appendLine("29%")
+            appendLine("29%...")
             }, 1000), setTimeout(() => {
-            appendLine("48%")
-            }, 1000), setTimeout(() => {
-            appendLine("69%")
-            }, 1000), setTimeout(() => {
-            appendLine("96%")
-            }, 1000), setTimeout(() => {
+            appendLine("48%...")
+            }, 2000), setTimeout(() => {
+            appendLine("69%...")
+            }, 3000), setTimeout(() => {
+            appendLine("96%...")
+            }, 4000), setTimeout(() => {
             appendLine("Successfully Pinged, Took 5000ms")
-            }, 1000);
+            }, 5000);
             break;
 
         }
